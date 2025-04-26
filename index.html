@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file for styling -->
+    <title>Patient Satisfaction Survey</title>
+</head>
+<body>
+    <h1>Patient Satisfaction Survey</h1>
+    <form action="#" method="post">
+        <!-- Patient's Name -->
+        <label for="patientName">Patient's Name:</label>
+        <input type="text" id="patientName" name="patientName" required>
+        <br><br>
+
+        <!-- Patient's File Number -->
+        <label for="fileNumber">Patient's File Number:</label>
+        <input type="text" id="fileNumber" name="fileNumber" required>
+        <br><br>
+
+        <!-- Hospital Unit -->
+        <label for="hospitalUnit">Which Unit of the hospital were you admitted to?</label>
+        <select id="hospitalUnit" name="hospitalUnit" required>
+            <option value="unit">Select the unit</option>
+            <option value="surgery">Surgery</option>
+            <option value="medicine">Medicine</option>
+            <option value="pediatrics">Pediatrics</option>
+            <option value="orthopedics">Orthopedics</option>
+            <option value="Inpatient Service (IP)">Inpatient Service (IP)</option>
+            <option value="Outpatient Department (OPD)">Outpatient Department (OPD)</option>
+            <option value="Critical Care Medicine">Critical Care Medicine</option>
+            <option value="Operation Theater Complex (OT)">Operation Theater Complex (OT)</option>
+            <option value="other">Other</option>
+        </select>
+        <br><br>
+
+        <!-- Overall Treatment Satisfaction -->
+        <label for="overall">Are you satisfied with the overall treatment?</label><br>
+        <input type="radio" id="vSat" name="overall" value="Very Satisfied" required> 
+        <label for="vSat">Very Satisfied</label>             
+        <input type="radio" id="sat" name="overall" value="Satisfied">
+        <label for="sat">Satisfied</label>
+        <input type="radio" id="nsat" name="overall" value="Not Satisfied">
+        <label for="nsat">Not Satisfied</label>
+        <br><br>
+
+        <!-- Medical Facilities Satisfaction -->
+        <label>Are you satisfied with the medical facilities in the hospital?</label><br>
+        <input type="radio" id="verySatisfiedFacilities" name="facilitiesSatisfaction" value="verySatisfied" required>
+        <label for="verySatisfiedFacilities">Very Satisfied</label>
+        <input type="radio" id="satisfiedFacilities" name="facilitiesSatisfaction" value="satisfied">
+        <label for="satisfiedFacilities">Satisfied</label>
+        <input type="radio" id="notSatisfiedFacilities" name="facilitiesSatisfaction" value="notSatisfied">
+        <label for="notSatisfiedFacilities">Not Satisfied</label>
+        <br><br>
+
+        <!-- Overall Comments -->
+        <label for="comments">Overall Comments:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+        <br><br>
+
+        <!-- Submit and Reset Buttons -->
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>
