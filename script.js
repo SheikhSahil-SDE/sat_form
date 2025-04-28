@@ -1,3 +1,4 @@
+// filepath: /workspaces/sat_form/script.js
 // Function to validate the form
 function validateForm(event) {
     // Prevent the form from submitting
@@ -7,12 +8,12 @@ function validateForm(event) {
     const patientName = document.getElementById('patientName').value.trim();
     const fileNumber = document.getElementById('fileNumber').value.trim();
     const hospitalUnit = document.getElementById('hospitalUnit').value;
-    const treatmentSatisfaction = document.querySelector('input[name="treatmentSatisfaction"]:checked')?.value;
+    const treatmentSatisfaction = document.querySelector('input[name="overall"]:checked')?.value; // Updated
     const facilitiesSatisfaction = document.querySelector('input[name="facilitiesSatisfaction"]:checked')?.value;
     const comments = document.getElementById('comments').value.trim();
 
     // Validate fields
-    if (!patientName || !fileNumber || !hospitalUnit || !treatmentSatisfaction || !facilitiesSatisfaction) {
+    if (!patientName || !fileNumber || hospitalUnit === "unit" || !treatmentSatisfaction || !facilitiesSatisfaction) {
         alert('Please fill out all required fields.');
         return;
     }
