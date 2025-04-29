@@ -22,7 +22,7 @@
         <!-- Hospital Unit -->
         <label for="hospitalUnit">Which Unit of the hospital were you admitted to?</label>
         <select id="hospitalUnit" name="hospitalUnit" required>
-            <option value="unit">Select the unit</option>
+            <option value="" disabled selected>Select the unit</option>
             <option value="surgery">Surgery</option>
             <option value="medicine">Medicine</option>
             <option value="pediatrics">Pediatrics</option>
@@ -34,6 +34,17 @@
             <option value="other">Other</option>
         </select>
         <br><br>
+
+        <!-- Overall Treatment Satisfaction -->
+        <label for="overall">Are you satisfied with the overall treatment?</label><br>
+        <input type="radio" id="vSat" name="overall" value="Very Satisfied" required> 
+        <label for="vSat">Very Satisfied</label>             
+        <input type="radio" id="sat" name="overall" value="Satisfied" required>
+        <label for="sat">Satisfied</label>
+        <input type="radio" id="nsat" name="overall" value="Not Satisfied" required>
+        <label for="nsat">Not Satisfied</label>
+        <br><br>
+
 
         <!-- Overall Treatment Satisfaction -->
         <label for="overall">Are you satisfied with the overall treatment?</label><br>
