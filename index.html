@@ -76,17 +76,18 @@
         <button type="reset">Reset</button>
     </form>
 
+   
     <script>
         document.querySelector('form').addEventListener('submit', async (event) => {
             event.preventDefault(); // Prevent default form submission
     
             const formData = {
-                patientName: document.getElementById('patientName').value,
-                fileNumber: document.getElementById('fileNumber').value,
+                patientName: document.getElementById('patientName').value.trim(),
+                fileNumber: document.getElementById('fileNumber').value.trim(),
                 hospitalUnit: document.getElementById('hospitalUnit').value,
-                treatmentSatisfaction: document.querySelector('input[name="overall"]:checked').value,
-                facilitiesSatisfaction: document.querySelector('input[name="facilitiesSatisfaction"]:checked').value,
-                comments: document.getElementById('comments').value,
+                treatmentSatisfaction: document.querySelector('input[name="overall"]:checked')?.value,
+                facilitiesSatisfaction: document.querySelector('input[name="facilitiesSatisfaction"]:checked')?.value,
+                comments: document.getElementById('comments').value.trim(),
             };
     
             try {
@@ -109,73 +110,5 @@
             }
         });
     </script>
-
-<script>
-    document.querySelector('form').addEventListener('submit', async (event) => {
-        event.preventDefault(); // Prevent default form submission
-
-        // Validate fields
-        const patientName = document.getElementById('patientName').value.trim();
-        const fileNumber = document.getElementById('fileNumber').value.trim();
-        const hospitalUnit = document.getElementById('hospitalUnit').value;
-        const treatmentSatisfaction = document.querySelector('input[name="overall"]:checked');
-        const facilitiesSatisfaction = document.querySelector('input[name="facilitiesSatisfaction"]:checked');
-        const comments = document.getElementById('comments').value.trim();
-
-        if (!patientName) {
-            alert("Please enter the patient's name.");
-            return;
-        }
-
-        if (!fileNumber) {
-            alert("Please enter the patient's file number.");
-            return;
-        }
-
-        if (hospitalUnit === "unit") {
-            alert("Please select a hospital unit.");
-            return;
-        }
-
-        if (!treatmentSatisfaction) {
-            alert("Please select your overall treatment satisfaction.");
-            return;
-        }
-
-        if (!facilitiesSatisfaction) {
-            alert("Please select your satisfaction with the medical facilities.");
-            return;
-        }
-
-        // Prepare form data
-        const formData = {
-            patientName,
-            fileNumber,
-            hospitalUnit,
-            treatmentSatisfaction: treatmentSatisfaction.value,
-            facilitiesSatisfaction: facilitiesSatisfaction.value,
-            comments,
-        };
-
-        try {
-            const response = await fetch('http://localhost:3000/submit-form', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (response.ok) {
-                alert('Form submitted successfully!');
-            } else {
-                alert('Failed to submit the form.');
-            }
-        } catch (error) {
-            console.error('Error submitting the form:', error);
-            alert('An error occurred while submitting the form.');
-        }
-    });
-</script>
 </body>
 </html>
